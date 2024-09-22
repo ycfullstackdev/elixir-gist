@@ -1,6 +1,30 @@
-<.flash_group flash={@flash} />
 <div class="em-gradient flex items-center justify-center">
   <h1 class="font-brand font-bold text-3xl text-white">
-    Instantly share Elixir code, notes, snippets
+    Instantly share Elixir code, notes, snippets.
   </h1>
 </div>
+<.form for={@form}>
+  <div class="justify-center px-28 w-full space-y-4 mb-10">
+    <.input field={@form[:description]} placeholder="Gist description.." autocomplete="off" />
+    <div>
+      <div class="flex p-2 items-center bg-emDark rounded-t-md border">
+        <div class="w-[300px] mb-2">
+          <.input
+            field={@form[:name]}
+            placeholder="Filename including extension..."
+            autocomplete="off"
+          />
+        </div>
+      </div>
+      <.input
+        type="textarea"
+        field={@form[:markup_text]}
+        class="textarea w-full rounded-br-md"
+        placeholder="Insert code..."
+        autocomplete="off"
+        phx-debounce="blur"
+        phx-hook="UpdateLineNumbers"
+      />
+    </div>
+  </div>
+</.form>
