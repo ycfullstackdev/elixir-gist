@@ -18,13 +18,16 @@
       </div>
       <.input
         type="textarea"
+        id="markup_text"
         field={@form[:markup_text]}
         class="textarea w-full rounded-br-md"
         placeholder="Insert code..."
         autocomplete="off"
         phx-debounce="blur"
-        phx-hook="UpdateLineNumbers"
       />
+    </div>
+    <div class="flex justify-end">
+      <.button class="create_button">Create gist</.button>
     </div>
   </div>
 </.form>
